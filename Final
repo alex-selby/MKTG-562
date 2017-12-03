@@ -1,0 +1,19 @@
+# 1) CLEAR ALL Variables (and also clear the screen)
+rm(list=ls())
+cat("\014")
+
+# 2) Tell your Code WHERE your Data is (i.e., SET the PATH)
+library(rstudioapi)
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+         
+# 3) Read in the data.
+WebData = read.csv("webdata.csv")
+
+# 4) Explore the data
+str(WebData)
+summary(WebData)
+
+###############################################################################################################
+# HISTOGRAM
+# "Create a histogram showing the distribution of customer ages."
+hist(WebData$transactionRevenue,main = paste("Histogram of Transaction Revenue"),xlab = "transactionRevenue") 
